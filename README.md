@@ -1,6 +1,6 @@
-# sikap
+# Sikap
 
-A new Flutter project.
+Sistem Informasi Aktivitas Kapal Perikanan 
 
 ## Getting Started
 
