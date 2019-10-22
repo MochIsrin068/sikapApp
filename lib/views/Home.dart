@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:sikap/models/about_data.dart';
 import 'package:sikap/models/chart_models.dart';
 import 'package:sikap/utils/dashboard_provider.dart';
+import 'package:sikap/utils/grafik_provider.dart';
 import 'package:sikap/widget/Chart.dart';
 import 'package:sikap/widget/Swiper.dart';
 import 'package:sikap/widget/card_loading.dart';
@@ -51,12 +52,6 @@ class Home extends StatelessWidget {
       );
     }
 
-    // var init = SizedBox(
-    //   child: CircularProgressIndicator(),
-    //   height: 100,
-    //   width: 100,
-    // );
-
     return Scaffold(
       drawer: SafeArea(
         child: Drawer(
@@ -65,8 +60,11 @@ class Home extends StatelessWidget {
               children: <Widget>[
                 DrawerHeader(
                     decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                            colors: [Colors.blue, Colors.blueAccent])),
+                        gradient: LinearGradient(colors: [
+                      Colors.blue,
+                      Colors.blueAccent,
+                      Colors.lightBlue
+                    ])),
                     child: Container(
                         child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -140,10 +138,6 @@ class Home extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         title: Text('Dashboard'),
-        // leading: IconButton(
-        //   icon: Icon(FontAwesomeIcons.bars),
-        //   onPressed: () {},
-        // ),
         actions: <Widget>[
           IconButton(
             icon: Icon(FontAwesomeIcons.bell),
@@ -206,27 +200,33 @@ class Home extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Container(
-              height: 300,
-              width: MediaQuery.of(context).size.width,
-              child: SimpleBarChart(ChartModel.createSampleData()),
-            ),
-            // Container(
-            //   height: 220.0,
-            //   child: ListView(
-            //     shrinkWrap: true,
-            //     scrollDirection: Axis.horizontal,
-            //     children: <Widget>[
-            //       Container(
-            //         height: 210,
+            FutureBuilder(
+              future: getDataArrivals(),
+              builder: (context, s) {
+                return s.data != null
+                    ? FutureBuilder(
+                        future: getDataDepatures(),
+                        builder: (context, s2) {
+                          if (s2.data != null) {
+                            dataArrivalDepatures(
+                                s.data["data"], s2.data["data"]);
 
-            //         child: SimpleBarChart(ChartModel.createSampleData()),
-            //       ),
-            //     ],
-            //   ),
-            // ),
+                            return Container(
+                              height: 300,
+                              width: MediaQuery.of(context).size.width,
+                              child:
+                                  SimpleBarChart(ChartModel.createSampleData()),
+                            );
+                          } else {
+                            return Center(child: CircularProgressIndicator());
+                          }
+                        },
+                      )
+                    : Center(child: CircularProgressIndicator());
+              },
+            ),
             SizedBox(
-              height: 5.0,
+              height: 8.0,
             ),
             Container(
               child: Row(
@@ -263,7 +263,8 @@ class Home extends StatelessWidget {
                   ),
                 ],
               ),
-            )
+            ),
+            SizedBox(height: 6.0)
           ],
         ),
       ),

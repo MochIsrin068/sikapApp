@@ -19,11 +19,14 @@ class SimpleBarChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new charts.BarChart(
-      seriesList,
-      animate: animate,
-      barGroupingType: charts.BarGroupingType.grouped,
-      vertical: false,
-    );
+    return new charts.BarChart(seriesList,
+        animate: animate,
+        barGroupingType: charts.BarGroupingType.grouped,
+        vertical: false,
+        barRendererDecorator: new charts.BarLabelDecorator(
+          insideLabelStyleSpec:
+              new charts.TextStyleSpec(fontSize: 6, color: charts.Color.white),
+          outsideLabelStyleSpec: new charts.TextStyleSpec(fontSize: 6),
+        ));
   }
 }
