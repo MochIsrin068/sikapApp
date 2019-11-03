@@ -15,6 +15,36 @@ Widget getDataBagianKapal(BuildContext context) {
   final kapalModel = Provider.of<KapalProvider>(context);
   final kedatanganModel = Provider.of<KedatanganProvider>(context);
   final keberangkatanModel = Provider.of<KeberangkatanProvider>(context);
+
+  totalArrival() {
+    int sum = 0;
+
+    if (kedatanganModel.arrival.isNotEmpty) {
+      for (int i = 0; i < kedatanganModel.dataBulan.length; i++) {
+        String bulan = kedatanganModel.dataBulan[i];
+        int parseBulan = int.parse(kedatanganModel.arrival[0][bulan]);
+        sum += parseBulan;
+      }
+    }
+
+    print(kedatanganModel.arrival);
+    return sum;
+  }
+
+  totalDepature() {
+    int sum = 0;
+    if (keberangkatanModel.depatures.isNotEmpty) {
+      for (int i = 0; i < keberangkatanModel.dataBulan.length; i++) {
+        String bulan = keberangkatanModel.dataBulan[i];
+        int parseBulan = int.parse(keberangkatanModel.depatures[0][bulan]);
+        sum += parseBulan;
+      }
+    }
+
+    print(keberangkatanModel.depatures);
+    return sum;
+  }
+
   return Container(
     height: 120,
     // width: 200,
@@ -47,7 +77,7 @@ Widget getDataBagianKapal(BuildContext context) {
             icon = FontAwesomeIcons.compressArrowsAlt;
             future = kedatanganModel.getKedatangan();
 
-            subtitle = kedatanganModel.kedatangan.length.toString();
+            subtitle = totalArrival().toString();
 
             break;
           case 'k3':
@@ -56,7 +86,7 @@ Widget getDataBagianKapal(BuildContext context) {
             icon = FontAwesomeIcons.expandArrowsAlt;
             future = keberangkatanModel.getKeberangkatan();
 
-            subtitle = keberangkatanModel.keberangkatan.length.toString();
+            subtitle = totalDepature().toString();
             break;
           case 'k4':
             bgcolors = Color(0xFFD81B60);
