@@ -94,9 +94,7 @@ Widget getDataBagianKapal(BuildContext context) {
             icon = FontAwesomeIcons.anchor;
             future = kapalModel.getDataKapal();
 
-            subtitle = (kedatanganModel.kedatangan.length +
-                    keberangkatanModel.keberangkatan.length)
-                .toString();
+            subtitle = totalArrival().toString();
             break;
           case 'k5':
             bgcolors = Color(0xFFFF851B);

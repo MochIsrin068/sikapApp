@@ -105,7 +105,18 @@ class Home extends StatelessWidget {
                         return SimpleDialog(
                           backgroundColor: Colors.white,
                           contentPadding: EdgeInsets.all(20.0),
-                          title: Text("Tentang PPS"),
+                          title: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text("Tentang PPS"),
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                icon: Icon(Icons.close),
+                              )
+                            ],
+                          ),
                           children: <Widget>[Text(aboutPPS)],
                         );
                       },
@@ -123,7 +134,18 @@ class Home extends StatelessWidget {
                         return SimpleDialog(
                           backgroundColor: Colors.white,
                           contentPadding: EdgeInsets.all(20.0),
-                          title: Text("Tentang Aplikasi"),
+                          title: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text("Tentang Aplikasi"),
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                icon: Icon(Icons.close),
+                              )
+                            ],
+                          ),
                           children: <Widget>[Text(aboutApp)],
                         );
                       },
