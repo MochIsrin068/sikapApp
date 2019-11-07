@@ -29,17 +29,12 @@ class CardData {
 
   var dataProduksi = [
     {
-      'id': 'p1',
-      'title': 'TOTAL IKAN',
-      'total': '8.393.256 Kg',
-    },
-    {
       'id': 'p2',
       'title': 'NILAI PRODUKSI',
       'total': 'Rp 200.000.000',
     },
     {
-      'id': 'p3',
+      'id': 'p1',
       'title': 'TOTAL PNBP',
       'total': 'Rp 4.837.936.741',
     },
@@ -47,6 +42,11 @@ class CardData {
       'id': 'p4',
       'title': 'JUMLAH TENAGA KERJA',
       'total': '10.500 Orang',
+    },
+    {
+      'id': 'p3',
+      'title': 'TOTAL IKAN',
+      'total': '8.393.256 Kg',
     },
   ];
   var dataPenyaluran = [

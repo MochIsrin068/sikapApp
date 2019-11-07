@@ -5,7 +5,7 @@ class LoadingCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 120,
-      child: Card(color: Colors.grey[200]),
+      child: Card(color: Colors.pink[200]),
     );
   }
 }

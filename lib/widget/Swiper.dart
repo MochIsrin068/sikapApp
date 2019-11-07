@@ -132,19 +132,9 @@ Widget getDashBoard1(BuildContext context) {
         Color icColors;
         IconData icon;
         String subtitle;
-        Future<dynamic> future;
+        Future<dynamic> future = ikanData.getIkanData();
         final formatter = new NumberFormat("#,###", "en_US");
         switch (idCard) {
-          case 'p1':
-            bgcolors = Color(0xFF0073B7);
-            icColors = Color(0xFF005C92);
-            icon = FontAwesomeIcons.fish;
-            future = ikanData.getIkanData();
-            subtitle =
-                formatter.format(double.parse(ikanData.ikan[0]['total_ikan'])) +
-                    ' KG';
-            future = dashBoardProvider.getDashboardData();
-            break;
           case 'p2':
             bgcolors = Color(0xFF3D9970);
             icColors = Color(0xFF317A5A);
@@ -152,13 +142,25 @@ Widget getDashBoard1(BuildContext context) {
             subtitle = 'Rp ' + dashBoardProvider.dashboard[8]['isi'];
             future = dashBoardProvider.getDashboardData();
             break;
-          case 'p3':
+          case 'p1':
             bgcolors = Color(0xFF001F3F);
             icColors = Color(0xFF001932);
             icon = FontAwesomeIcons.moneyBillAlt;
             subtitle = 'Rp ' + dashBoardProvider.dashboard[9]['isi'];
             future = dashBoardProvider.getDashboardData();
 
+            break;
+          case 'p3':
+            bgcolors = Color(0xFF0073B7);
+            icColors = Color(0xFF005C92);
+            icon = FontAwesomeIcons.fish;
+            future = ikanData.getIkanData();
+            subtitle = ikanData.ikan[0]['total_ikan'] == 0
+                ? ''
+                : formatter
+                        .format(double.parse(ikanData.ikan[0]['total_ikan'])) +
+                    ' KG';
+            future = dashBoardProvider.getDashboardData();
             break;
           case 'p4':
             bgcolors = Color(0xFF605CA8);

@@ -5,6 +5,7 @@ import 'package:sikap/models/about_data.dart';
 import 'package:sikap/models/chart_models.dart';
 import 'package:sikap/utils/dashboard_provider.dart';
 import 'package:sikap/utils/grafik_provider.dart';
+import 'package:sikap/widget/Card.dart';
 import 'package:sikap/widget/Chart.dart';
 import 'package:sikap/widget/Swiper.dart';
 import 'package:sikap/widget/card_loading.dart';
@@ -38,15 +39,33 @@ class Home extends StatelessWidget {
         child: Column(
           children: <Widget>[
             // getDataBagianKapal(context, sub: )
-            LoadingCard(),
+            CardWidget(
+              icon: Icons.timer,
+              icColor: Colors.white,
+              color: Colors.grey,
+              title: 'Loading...',
+              subtitle: 'Loading...',
+            ),
             SizedBox(
               height: 10,
             ),
-            LoadingCard(),
+            CardWidget(
+              icon: Icons.timer,
+              icColor: Colors.white,
+              color: Colors.grey,
+              title: 'Loading...',
+              subtitle: 'Loading...',
+            ),
             SizedBox(
               height: 10,
             ),
-            LoadingCard(),
+            CardWidget(
+              icon: Icons.timer,
+              icColor: Colors.white,
+              color: Colors.grey,
+              title: 'Loading...',
+              subtitle: 'Loading...',
+            ),
           ],
         ),
       );
@@ -57,6 +76,7 @@ class Home extends StatelessWidget {
         child: Drawer(
           child: Container(
             child: ListView(
+              shrinkWrap: true,
               children: <Widget>[
                 DrawerHeader(
                     decoration: BoxDecoration(
@@ -197,7 +217,7 @@ class Home extends StatelessWidget {
             FutureBuilder(
               future: _pr.getDashboardData(),
               builder: (_, snap) {
-                if (snap.connectionState == ConnectionState.done) {
+                if (snap.hasData) {
                   return sw();
                 }
                 return loading();
