@@ -22,7 +22,7 @@ class CardData {
     },
     {
       'id': 'k5',
-      'title': 'JUMLAH UNIT KAPAL',
+      'title': 'JUMLAH UNIT KAPAL BONGKAR',
       'total': 525,
     },
   ];

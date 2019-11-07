@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:sikap/utils/dashboard_provider%20copy.dart';
 import 'package:sikap/utils/dashboard_provider.dart';
 import 'package:sikap/utils/kapal_provider.dart';
 import 'package:sikap/utils/keberangkatan_provider.dart';
@@ -29,6 +30,8 @@ class MyApp extends StatelessWidget {
                 builder: (_) => KeberangkatanProvider()),
             ChangeNotifierProvider<DashBoardProvider>(
                 builder: (_) => DashBoardProvider()),
+            ChangeNotifierProvider<IkanProvider>(
+                builder: (_) => IkanProvider()),
           ],
           child: Home(),
         ));
