@@ -155,7 +155,7 @@ Widget getDashBoard1(BuildContext context) {
             icColors = Color(0xFF005C92);
             icon = FontAwesomeIcons.fish;
             future = ikanData.getIkanData();
-            subtitle = ikanData.ikan[0]['total_ikan'] == 0
+            subtitle = ikanData.ikan.isEmpty
                 ? ''
                 : formatter
                         .format(double.parse(ikanData.ikan[0]['total_ikan'])) +
