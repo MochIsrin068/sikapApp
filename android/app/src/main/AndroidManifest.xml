@@ -9,7 +9,7 @@
          <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="SIKAP - Sistem Informasi Aktivitas Kapal Perikanan"
+        android:label="Sistem Informasi PPS Kendari"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"

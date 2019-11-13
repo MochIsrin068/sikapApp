@@ -13,7 +13,7 @@ import 'package:sikap/views/Home.dart';
 // void main() => runApp(SplahScreen());
 void main() => runApp(MaterialApp(
   debugShowCheckedModeBanner: false,
-        title: 'SIKAP - Sistem Informasi Aktivitas Kapal Perikanan',
+        title: 'Sistem Informasi PPS Kendari',
         theme: ThemeData(
           primarySwatch: Colors.blue,
           fontFamily: 'Poppins',

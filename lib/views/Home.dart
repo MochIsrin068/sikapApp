@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sikap/models/about_data.dart';
 import 'package:sikap/models/chart_models.dart';
 import 'package:sikap/utils/dashboard_provider.dart';
 import 'package:sikap/utils/grafik_provider.dart';
+import 'package:sikap/utils/markdown.dart';
 import 'package:sikap/widget/Card.dart';
 import 'package:sikap/widget/Chart.dart';
 import 'package:sikap/widget/Swiper.dart';
@@ -167,6 +169,81 @@ class Home extends StatelessWidget {
                             ],
                           ),
                           children: <Widget>[Text(aboutApp)],
+                        );
+                      },
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: Icon(FontAwesomeIcons.sitemap, size: 18.0),
+                  title: Text("Visi & Misi"),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return SimpleDialog(
+                          backgroundColor: Colors.white,
+                          contentPadding: EdgeInsets.all(20.0),
+                          title: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text("Visi & Misi"),
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                icon: Icon(Icons.close),
+                              )
+                            ],
+                          ),
+                          children: <Widget>[
+                            Text(
+                              'Visi',
+                              style: TextStyle(fontWeight: FontWeight.w700),
+                            ),
+                            Text(
+                              visi,
+                            ),
+                            Text(
+                              'Misi',
+                              style: TextStyle(fontWeight: FontWeight.w700),
+                            ),
+                            Text(
+                              misi,
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                ),
+                ListTile(
+                  leading: Icon(FontAwesomeIcons.infoCircle, size: 18.0),
+                  title: Text("Hubungi Kami"),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return SimpleDialog(
+                          backgroundColor: Colors.white,
+                          contentPadding: EdgeInsets.all(20.0),
+                          title: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text("Hubungi Kami"),
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                icon: Icon(Icons.close),
+                              )
+                            ],
+                          ),
+                          children: <Widget>[
+                            Text(hubungiKami),
+                          ],
                         );
                       },
                     );
